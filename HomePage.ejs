@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sahoolat</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+
+  #ads{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0,0.2);
+  }
+a{ color: white; }
+
+.btn{
+            font-style:italic;
+font-weight: bold; 
+color:#33a18b;
+font-size:2vw; 
+border-color:#33a18b; 
+background-color:#e6e2d3;
+padding:15px 15px 15px 15px;
+        }
+#myBtn {
+    
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+ 
+ cursor: pointer;
+  
+  border-radius: 100%;
+}
+
+.navbar {
+      margin-bottom: 0;
+      background-color:  #33a18b;
+      border: 0;
+      font-size: 14px !important;
+      letter-spacing: 2px;
+      opacity: 0.9;
+ /*font-family: Montserrat, sans-serif;*/
+ font-weight: bolder;
+  }
+  
+  .navbar li a, .navbar .navbar-brand { 
+      color: #ffffff !important;
+  }
+  .navbar-light .navbar-nav .nav-link{
+  color: white !important;
+font-weight:bolder;
+font-size: 18px;
+	
+}
+  .navbar-nav li a:hover {
+      color: #fff !important;
+  }
+  .navbar-nav li.active a {
+      color:#fff !important;
+      background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+background-color: #29292c !important;
+  }
+  .nav-link:hover{
+background-color: #618685 ;
+}
+ 
+ 
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+
+.marquee{
+top:6em;
+position:relative;
+box-sizing:border-box;
+animation:marquee 10s linear infinite;
+}
+
+@keyframes marquee{
+0% {top: 18em}
+100%{top:-2em}
+}
+.microsoft:before, .microsoft::before,
+.microsoft:after, .microsoft::after {
+left:0;
+z-index:1;
+position:relative;
+pointer-events:none;
+width:100%; height: 2em;
+
+}
+.microsoft:after, .microsoft::after {
+bottom: 0;
+transform:rotate(90deg);}
+.microsoft:before, .microsoft::before{
+top:0;}
+
+.foot{ 
+  font-size: 14px;
+  line-height: 1cm;
+margin-top:-33px;
+  color: white;
+  font-family: Lucida-Sans;}
+
+  .container-fluid{
+  background-color: #33a18b;
+}
+
+  .footer-copyright{
+background-color: #12836d;
+padding : 1%;
+color: white;
+}
+
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" >
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SAHOOLAT </a>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="/profiles" class="active">Helpers</a></li>
+        <li><a href="/EmployerProfiles" class="active">Employers</a></li>
+        
+        <li><a href="#">Helpers Feed</a></li>
+        <li><a href="/faqs" class="active">FAQS</a></li>
+ <li><a href="#">About Us</a></li>
+ <li>
+   <a href="/per_emp_profile/5"><img src="http://localhost:3000/Images/B.png" class="img-responsive" style="border-radius:100px; height:45px;width:45px; margin-top:-8px"></a>
+   <!-- <a href="/personalprofile/6"><img src="http://localhost:3000/Images/B.png" class="img-responsive" style="border-radius:100px; height:45px;width:45px; margin-top:-8px"></a> -->
+
+  </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="https://cdn.babysits.com/content/global/hero/european/babysits_1.jpg" alt="..." class="img-responsive">     
+    </div>
+    <div class="item">
+      <img src="https://blog.junkmail.co.za/wp-content/uploads/2015/08/domesticworker-cleaning-products.jpg" alt="..." class="img-responsive">     
+    </div>
+<div class="item">
+      <img src="https://www.ucsf.edu/sites/default/files/styles/article_feature_banner__image/public/2019-09/vegetables-cooking-food-banner-size.jpg" alt="..." class="img-responsive">
+      
+    </div>
+<div class="item">
+      <img src="https://i.ytimg.com/vi/i_7xU-M28IM/maxresdefault.jpg" alt="..." class="img-responsive">  
+    </div>
+    
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+<!--Employers start here-->
+
+<div class="jumbotron" id="employers" style="background-color:#e6e2d3;width:66%;float:right;">
+
+<div class="container">
+<div class="row">
+<h2 style="text-align:center; color:  #33a18b; font-weight: bold;">Easy way for employers to find the helpers of their choice</h2></br></br>
+
+<div class="col-md-6">
+<div class="thumbnail" style="background:  #33a18b; ">
+ 
+<div class="postjobbtn" style="text-align:center; margin-bottom:20px;" >
+<p style="color: white;text-align:center;">Do You Want a Helper of Your Choice. Post Here.</p>
+<a href="/postjob" class="btn">POST A JOB</a>
+</div>
+
+</div><!--"thumbnail"  is closed -->
+</div><!--"col"  is closed -->
+
+
+<div class="col-md-6">
+<div class="thumbnail" style="background:  #33a18b; "> 
+<div class="findhelperbtn" style="text-align:center; margin-bottom:20px;" >
+<p style="color: white; text-align:center;">To View the Profile of the Helpers Click Here</p>
+<a href="/profiles" class="btn">FIND A HELPER</a>
+</div>
+</div><!--"thumbnail"  is closed -->
+</div><!--"col"  is closed -->
+
+</div><!-- row -->
+</div><!-- container -->
+</div><!-- jumbotron -->
+
+<!--====================================Ads Jumbotron=============================-->
+<div id="ads" style="text-align:center;">
+<div class="jumbotron" style="background-color:white;width:34%;height:397px;float:left;">
+
+<!-- <span class="glyphicon glyphicon-info-sign" style="margin-top:-40px;"></span>-->
+<span class="close" onclick="closeAd()" style="/*color: cyan;*/ margin-top:-40px;"><span class="glyphicon glyphicon-remove"></span></span>
+<script>
+var ad = document.getElementById("ads");
+var emp = document.getElementById("employers");
+function closeAd(){
+ad.style.display="none";
+emp.style.width="100%";
+}
+</script>
+
+<img src="https://gifimage.net/wp-content/uploads/2017/10/new-icon-gif-animation-14.gif" alt="BabySitting" width="70px" height="70px" style="float:left; margin-top:-25px;">
+</br>
+<h4 style="float:right">18% DISCOUNT</h4>
+</br></br>
+<h4 style="text-align:center;font-weight:bold;">Mobiles on Easy Installment Plans(EMI)</h4>
+<h6>Run Quickly, Grab the golden chance. </h6>
+<div class="microsoft-container">
+<div class="marquee">
+<img src="https://c.tribune.com.pk/2016/06/1126288-Mobile_Week_Countdown_HN_x-1466413060.png" alt="..." width="75%" height="75%" style="border-radius:25px;  ">
+</br></br>
+<img src="https://static-01.daraz.pk/p/e1a132baaf76802a7d1e619397ce26eb.jpg" alt="..." width="75%" height="75%" style="border-radius:25px;">
+
+</div><!-- marquee -->
+</div><!-- microsoftcontainer -->
+</div><!-- jumbotron -->
+</div><!-- ads -->
+
+<!--==========================================Ads End here==========================-->
+
+
+
+
+<div class="jumbotron" style="background:white;width:80%;">
+
+<div class="container">
+<div class="col-sm-7" >
+<div class="thumbnail" style="background:white; border-color:white; float:left;">
+ </br></br> <p style="text-align: right;font-style: italic; font-size: 20px; color:#33a18b; font-weight: bold; margin-right: 70px;"> Our Services are</p>
+
+<div class="row" id="cleaning">
+<img src="https://image.shutterstock.com/image-vector/cleaning-girl-260nw-102592562.jpg" alt="cleaning" class="rounded-circle" width="100" height="100" style="border-radius:100px; margin-top:30px;">
+<a href="CleanProfile.html" style="color: #33a18b;"><h2 style=" margin-left:100px; margin-top:-80px; /*font-family: Algerian, sans-serif;*/ text-align:center; ">Cleaning</h2></a>
+
+<p style="text-align:center; margin-left:90px;">Hire a maid at reasonable rates. </p>
+</div><!--row1 closed-->
+
+<div class="row"  id="cooking">
+<img src="https://img.favpng.com/13/1/16/cupcake-cooking-chef-cartoon-png-favpng-i4VtcyAG3ncQmdYs0CExAkQSw.jpg" alt="Cooking" class="rounded-circle" width="100" height="100" style="border-radius:100px; margin-top:30px;">
+<a href="CookProfile.html" style="color: #33a18b;"><h2 style=" margin-left:100px; margin-top:-80px; /*font-family: Algerian, sans-serif;*/ text-align:center; ">Cooking</h2></a>
+<p style="text-align:center; margin-left:90px;">Hire a cook at reasonable rates. </p>
+</div><!--row2 closed-->
+
+<div class="row" id="babysitter">
+<img src="https://www.netclipart.com/pp/m/326-3268334_mom-babysitting-baby-sittings.png" alt="BabySitter" class="rounded-circle" width="100" height="100" style="border-radius:100px; margin-top:30px;">
+<a href="BabysiterProfile.html" style="color: #33a18b;"><h2 style=" margin-left:100px; margin-top:-80px; /*font-family: Algerian, sans-serif;*/ text-align:center; ">Baby Siter</h2></a>
+<p style="text-align:center; margin-left:90px;">Hire a babysiter at reasonable rates. </p>
+</div><!--row3 closed-->
+
+<div class="row" id="beauty">
+<img src="https://cdn5.vectorstock.com/i/1000x1000/10/74/spa-procedure-for-hair-in-beauty-salon-cartoon-set-vector-23721074.jpghttps://i.ytimg.com/vi/i_7xU-M28IM/maxresdefault.jpg" alt="Beaut" class="rounded-circle" width="100" height="100" style="border-radius:100px; margin-top:30px;">
+<a href="BeauticianProfile.html" style="color: #33a18b;"><h2 style=" margin-left:100px; margin-top:-80px;/* font-family: Algerian, sans-serif;*/ text-align:center; ">Beauty Care</h2></a>
+<p style="text-align:center; margin-left:90px;">Hire a beautician at reasonable rates. </p>
+</div><!--row4 closed-->
+</div><!--thumbnail closed-->
+</div><!--Col closed-->
+
+<div class="col-sm-5" ">
+<img src="https://webstockreview.net/images/celery-clipart-animated-22.gif" alt="cook"  width="100%" height="110%" style="text-align:center;">
+</div>
+
+</div><!--Container closed-->
+</div>
+
+
+
+<div class="jumbotron" style="background-color:#e6e2d3; margin-top:-28px;">
+</br></br></br>
+<h2 style="text-align:center;color:  #33a18b;font-weight:bold;font-style:italic; ">Quick and Easy way to get a job.</h2>
+<h2 style="text-align:center;color:  #33a18b; font-style:italic;"> You need a job </h2>
+<p style="text-align:center;color:  #33a18b;font-style:italic;">Click here</p>
+</br>
+<div class="getjobbtn" style="text-align:center;">
+<a href="/getajob" class="btn">GET A JOB</a>
+</div>
+</div>
+
+<!-- BackToTop Button -->
+<img src="https://www.pyronix.com/lexicon/Content/Resources/Images/Back-to-Top.gif" alt="backtotop" id="myBtn" onclick="topFunction()" style="width:5%;" >
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<form>
+
+<!-- Footer -->
+<div class="foot">
+  <footer class="page-footer font-small teal pt-4">
+  
+    <!-- Footer Text -->
+    <div class="container-fluid  text-md-left">
+  
+      <!-- Grid row -->
+      <div class="row">
+  
+        <!-- Grid column -->
+        <div class="col-md-4 mt-md-0 mt-3"  >
+  
+          <!-- Content -->
+          <h3 style="color: white;">Sahoolat Content</h3>
+          <a> Sahoolat is a platform to connect Helpers and Employers.</a><br>
+           <a> We are here to provide a connection</a><br>
+            <a> Thanks for becoming a part of <i> sahoolat's </i> community</a>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <!-- <hr class="clearfix w-100 d-md-none pb-3" > -->
+  
+        <!-- Grid column -->
+        <div class="col-md-4 mb-md-0 mb-3">
+  
+          <!-- Content -->
+          <h3 style="color: white;">Important Links</h3>
+          <a href="/contact">Contact us</a><br>
+          <a href="help">Help Center</a><br>
+          <a href="/faqs">Frequently Asked Questions</a>
+  
+        </div>
+        <div class="col-md-4 mb-md-0 mb-3" >
+  
+          <!-- Content -->
+          <h3 style="color: white;">Contact Information</h3>
+          <a href="about"> About us</a><br>
+          
+          <a>Contact number: 0900-78601</a><br>
+          <a>Email address: sahoolat1@gmail.com</a>
+  
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Text -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="Sahoolat"> Sahoolat.com</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  </div>
+  <!-- Footer -->
+	</div>
+
+
+</body>
+</html>

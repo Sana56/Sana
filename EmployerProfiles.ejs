@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sahoolat</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+  
+a{ color: white; }
+.btn{
+        font-style: italic;    
+font-weight: bold; 
+border-color:#e6e2d3;;
+font-size:16px; 
+background-color:#618685;
+color:#fff;
+
+padding:10px 10px 10px 10px;
+
+        }
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 85%;
+  margin: auto;
+  font-family: arial;
+  background: #fff;
+}
+
+#myBtn {
+    
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+ 
+ cursor: pointer;
+  
+  border-radius: 100%;
+}
+.navbar {
+      margin-bottom: 0;
+      background-color: #33a18b;
+      border: 0;
+      font-size: 14px !important;
+      letter-spacing: 2px;
+      opacity: 0.9;
+      font-weight: bold;
+ /*font-family: Montserrat, sans-serif;*/
+  }
+  
+  .navbar li a, .navbar .navbar-brand { 
+      color: white !important;
+  }
+  .navbar-nav li a:hover {
+      color: #fff !important;
+  }
+  .navbar-nav li.active a {
+      color: #fff !important;
+      background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+background-color: #29292c !important;
+  }
+  .open .dropdown-toggle {
+      color: black;
+      background-color: #618685 !important;
+  }
+  .dropdown-menu li a {
+      color: #000 !important;
+  }
+  .dropdown-menu li a:hover {
+      background-color: #618685 !important;
+  }
+ 
+ 
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+.foot{ 
+  font-size: 14px;
+  line-height: 1cm;
+margin-top:-33px;
+  color: white;
+  font-family: Lucida-Sans;}
+
+  .container-fluid{
+  background-color: #33a18b;
+}
+
+  .footer-copyright{
+background-color: #12836d;
+padding : 1%;
+color: white;
+}
+
+
+
+
+  </style>
+</head>
+<body style="background: #f0f0f0;">
+<nav class="navbar navbar-default navbar-fixed-top" >
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SAHOOLAT </a>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/homepage" class="active">Home</a></li>
+        <li><a href="/faqs" class="active">FAQS</a></li>
+ <li><a href="#">About Us</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+</br></br></br></br>
+<h1 style="text-align:center; color: #33a18b;"> Employer Profiles</h1>
+</br></br></br>
+<p style="text-align:center;font-size:18px;">Search  By City<span class="glyphicon glyphicon-map-marker"></span></p></p>
+<div style="text-align:center;">
+
+  <form method="post" action="/empsubmitsearch">
+<input type="text" name="searchinput"/>
+<input type="submit" name="Search" value="Search">
+</form>
+</br></br></br>
+<p style="text-align:center;font-size:18px;"><%=noresultMsg%></p>
+</div>
+
+
+<% for(var i=0 ; i<employers.length ; ++i) {%>
+<div class="container" style="padding-left: 15px; padding-right: 15px;">
+<div class="card">
+  <div class="row"> 
+    <div class="col-sm-2">
+      <div class="thumbnail" style="border-color:white; position:relative;height: 120px; min-height: 1px; line-height: normal; width: 120.5px "> 
+      
+            <img src="http://localhost:3000/Images/<%=employers[i].empprofile_pic%>" class="center-block img-circle ">
+        
+      </div>
+    </div>
+
+
+    <div class="col-sm-8">
+      <div class="thumbnail" style="border-color:white;"> 
+           <h2 style="font-style:italic;color:#33a18b; "><%=employers[i].Employer_Fname%>&nbsp;<%=employers[i].EmployerLname%></h2>
+           <p style="font-size:16px; font-weight:bold; font-style:italic; ">Need <%=employers[i].preference%> Helper</p>
+            <p style="font-size:16px; font-style:italic; ">City: <%=employers[i].Employer_City%></p>
+            <p style="font-size:16px; font-style:italic; ">Helper&apos;s salary is negotiatable according to Work and Market Rate.
+            <!-- <a href="/editEmpprofile/<%=employers[i].Employer_id%>" class="btn"><span class="glyphicon glyphicon-edit"></span>&ensp;EDIT</a> -->
+            <a href="/empdetailprofile/<%=employers[i].Employer_id%>" class="btn">&ensp;DETAILS</a>
+      </div>
+    </div>
+  </div>
+</div> <!--card -->
+</div><!-- container -->
+</br>
+<% } %>
+
+</br></br></br>
+
+
+ 
+
+</br></br></br></br>
+
+<!-- Footer -->
+<div class="foot">
+<footer class="page-footer font-small teal pt-4">
+
+  <!-- Footer Text -->
+  <div class="container-fluid  text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mt-md-0 mt-3">
+        
+        <!-- Content -->
+        <h3 style="color: white;">Sahoolat Content</h3>
+        <a> Sahoolat is a platform to connect Helpers and Employers.</a><br>
+        <a> We are here to provide a connection</a><br>
+        <a> Thanks for becoming a part of <i> sahoolat's </i> community</a>
+        
+      </div>
+      <!-- Grid column -->
+
+      <!-- <hr class="clearfix w-100 d-md-none pb-3" > -->
+
+      <!-- Grid column -->
+      <div class="col-md-4 mb-md-0 mb-3">
+
+        <!-- Content -->
+        <h3 style="color: white;">Important Links</h3>
+        <a href="contact">Contact us</a><br>
+        <a href="help">Help Center</a><br>
+        <a href="about">Frequently Asked Questions</a>
+
+      </div>
+      <div class="col-md-4 mb-md-0 mb-3" >
+
+        <!-- Content -->
+        <h3 style="color: white;">Contact Information</h3>
+        <a href="about"> About us</a><br>
+        
+        <a>Contact number: 0900-78601</a><br>
+        <a>Email address: sahoolat1@gmail.com</a>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Text -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="Sahoolat"> Sahoolat.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+</div>
+<!-- Footer -->
+
+
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sahoolat</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+  .star{
+          color: #33a18b;
+          font-size: 3.0rem;
+          padding: 0rem; /* space out the stars */
+        }
+        .star::before{
+          content: '\2606';    /* star outline */
+          cursor: pointer;
+        }
+        .star.rated::before{
+          /* the style for a selected star */
+          content: '\2605';  /* filled star */
+        }
+        
+        .stars{
+            counter-reset: rateme 0;   
+            font-size: 2.0rem;
+            font-weight: 100;
+        }
+        .star.rated{
+            counter-increment: rateme 1;
+        }
+        .stars::after{
+            content: counter(rateme) '/5';
+            }
+        
+  .btn{
+        font-style: italic;    
+font-weight: bold; 
+border-color:#e6e2d3;;
+font-size:16px; 
+background-color:#618685;
+color:#fff;
+
+padding:5px 5px 5px 5px;
+
+        }
+.alag{
+  box-shadow: 0 4px 8px 0 rgba(0.8, 0, 0.2,0.2);
+  max-width: 250px;
+  margin: auto;
+  }
+  a{color: white;}
+.navbar {
+      margin-bottom: 0;
+      background-color: #33a18b;
+      /*618685;*/
+      border: 0;
+      font-size: 14px !important;
+      letter-spacing: 2px;
+      opacity: 0.9;
+      font-weight: bold;
+ /*font-family: Montserrat, sans-serif;*/
+  }
+  
+  .navbar li a, .navbar .navbar-brand { 
+      color: white !important;
+  }
+  .navbar-nav li a:hover {
+      color: #fff !important;
+  }
+  .navbar-nav li.active a {
+      color: #fff !important;
+      background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+background-color: #29292c !important;
+  }
+  .open .dropdown-toggle {
+      color: black;
+      background-color: #618685 !important;
+  }
+  .dropdown-menu li a {
+      color: #000 !important;
+  }
+  .dropdown-menu li a:hover {
+      background-color: #618685 !important;
+  }
+ 
+ 
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+
+.foot{ 
+  font-size: 14px;
+  line-height: 1cm;
+margin-top:-33px;
+  color: white;
+  font-family: Lucida-Sans;}
+
+  .container-fluid{
+  background-color: #33a18b;
+}
+
+  .footer-copyright{
+background-color: #12836d;
+padding : 1%;
+color: white;
+}
+
+
+
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" >
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SAHOOLAT </a>
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/homepage" class="active">Home</a></li>
+        <li><a href="/profiles" class="active">Helpers</a></li>
+        <li><a href="#" class="active">Helpers Feed</a></li>
+        <li><a href="/faqs" class="active">FAQS</a></li>
+        
+ <li><a href="#">About Us</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</br></br></br>
+
+<% for(var i=0 ; i<emp.length ; ++i) {%>
+<div class="container">
+  <div class="row">
+  <div class="col-md-3">
+<div class="thumbnail" style="border-color: transparent; margin-top: -15px;">
+<div class="alag" style="margin-top: 40px; text-align: center;">
+      <img src="http://localhost:3000/Images/<%=emp[i].empprofile_pic%>"" alt="mukhtar" style="width:75%;height:30%; border-radius:100px;text-align:center; margin-top:30px; ">
+      <h4 style="font-style:italic;color:#33a18b;"><%=emp[i].Employer_Fname%>&nbsp;<%=emp[i].EmployerLname%></h4>
+ <p style="font-size:20px;  font-style:italic; ">City: <%=emp[i].Employer_City%></p>
+
+  <a href="/empconnect" class="btn">Connections</a>
+  <!-- <a href="/editEmpprofile/<%=emp[i].Employer_id%>" class="btn"><span class="glyphicon glyphicon-edit"></span>&ensp;EDIT</a> -->
+
+  </br></br> </br>
+  </div>
+ 
+</div><!-- thumbnail -->
+</div> <!-- col -->
+<div class="col-md-9">
+  <div class="thumbnail" style="border-color:  transparent;">
+    <div style="/*border-left:2px solid #618685;*/ height: 500px;margin-top: -14px;">
+    </br></br></br>
+    <h3 style="text-align: center; font-style: italic; color: #33a18b;"><%=emp[i].Employer_Fname%>&nbsp;<%=emp[i].EmployerLname%></h3>
+    <hr style=" border:1px solid #33a18b; width:100%"></br>
+    <table  class="table table-border">
+    
+    <tbody >
+      <tr style="border:2px solid transparent;">
+        <td style="font-weight: bold;">Address:</td>
+        <td> <%=emp[i].Employer_Address%></td>
+        </tr>
+      
+      <tr style="border:2px solid transparent;">
+        <td style="font-weight: bold;">Email:</td>
+        <td><%=emp[i].Email_Address%></td>
+        </tr>
+      
+      <tr style="border:2px solid transparent;">
+        <td style="font-weight: bold;">Work Preference:</td>
+        <td>Want&nbsp;<%=emp[i].preference%>&nbsp;helper</td>
+        </tr>
+
+       
+
+          <tr style="border:2px solid transparent;">
+            <td style="font-weight: bold;">Contact Number:</td>
+            <td><%=emp[i].Employer_Contact%></td>
+            </tr>
+      
+      
+      
+     
+
+      
+
+      
+    </tbody>
+  </table>
+    
+  </div>
+  </div> 
+  
+</div>
+
+
+</div> <!-- row -->
+</div> <!-- container -->
+
+
+<% } %>
+
+</br>
+
+<!-- Rating Modal -->
+
+<!-- Footer -->
+<div class="foot">
+<footer class="page-footer font-small teal pt-4">
+
+  <!-- Footer Text -->
+  <div class="container-fluid  text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mt-md-0 mt-3"  >
+
+        <!-- Content -->
+        <h3 style="color: white;">Sahoolat Content</h3>
+        <a> Sahoolat is a platform to connect Helpers and Employers.</a><br>
+         <a> We are here to provide a connection</a><br>
+          <a> Thanks for becoming a part of <i> sahoolat's </i> community</a>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- <hr class="clearfix w-100 d-md-none pb-3" > -->
+
+      <!-- Grid column -->
+      <div class="col-md-4 mb-md-0 mb-3">
+
+        <!-- Content -->
+        <h3 style="color: white;">Important Links</h3>
+        <a href="contact">Contact us</a><br>
+        <a href="help">Help Center</a><br>
+        <a href="about">Frequently Asked Questions</a>
+
+      </div>
+      <div class="col-md-4 mb-md-0 mb-3" >
+
+        <!-- Content -->
+        <h3 style="color: white;">Contact Information</h3>
+        <a href="about"> About us</a><br>
+        
+        <a>Contact number: 0900-78601</a><br>
+        <a>Email address: sahoolat1@gmail.com</a>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Text -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="Sahoolat"> Sahoolat.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+</div>
+<!-- Footer -->
+
+
+</body>
+</html>

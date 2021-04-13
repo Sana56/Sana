@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    
+<head>
+  <title>Sahoolat</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    .rating .glyphicon {font-size: 30px;
+    color: #618685;}
+    .glyphicon { margin-right:7px;}
+    .star{
+            color: #618685;
+            font-size: 4.0rem;
+            padding: 0rem; /* space out the stars */
+          }
+          .star::before{
+            content: '\2606';    /* star outline */
+            cursor: pointer;
+          }
+          .star.rated::before{
+            /* the style for a selected star */
+            content: '\2605';  /* filled star */
+          }
+          
+          .stars{
+              counter-reset: rateme 0;   
+              font-size: 2.0rem;
+              font-weight: 100;
+          }
+          .star.rated{
+              counter-increment: rateme 1;
+          }
+          .stars::after{
+              content: counter(rateme) '/5';
+              }
+          
+    .btn{
+          font-style: italic;    
+  font-weight: bold; 
+  border-color:#e6e2d3;;
+  font-size:16px; 
+  background-color:#618685;
+  color:#fff;
+  
+  padding:5px 5px 5px 5px;
+  
+          }
+  .card{
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 70%;
+  margin: auto;
+  font-family: arial;
+  background: #fff;
+    }
+    a{color: white;}
+  .navbar {
+        margin-bottom: 0;
+        background-color: #33a18b;
+        /*618685;*/
+        border: 0;
+        font-size: 14px !important;
+        letter-spacing: 2px;
+        opacity: 0.9;
+        font-weight: bold;
+   /*font-family: Montserrat, sans-serif;*/
+    }
+    
+    .navbar li a, .navbar .navbar-brand { 
+        color: white !important;
+    }
+    .navbar-nav li a:hover {
+        color: #fff !important;
+    }
+    .navbar-nav li.active a {
+        color: #fff !important;
+        background-color: #29292c !important;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+  background-color: #29292c !important;
+    }
+    .open .dropdown-toggle {
+        color: black;
+        background-color: #618685 !important;
+    }
+    .dropdown-menu li a {
+        color: #000 !important;
+    }
+    .dropdown-menu li a:hover {
+        background-color: #618685 !important;
+    }
+   
+   
+    .carousel-inner img {
+        width: 100%;
+        height: 100%;
+    }
+  
+  .foot{ 
+    font-size: 14px;
+    line-height: 1cm;
+  margin-top:-33px;
+    color: white;
+    font-family: Lucida-Sans;}
+  
+    .container-fluid{
+    background-color: #33a18b;
+  }
+  
+    .footer-copyright{
+  background-color: #12836d;
+  padding : 1%;
+  color: white;
+  }
+  </style>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top" >
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SAHOOLAT </a>
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/homepage" class="active">Home</a></li>
+        <li><a href="/profiles" class="active">Helpers</a></li>
+        <li><a href="#" class="active">Helpers Feed</a></li>
+        <li><a href="/faqs" class="active">FAQS</a></li>
+ <li><a href="#">About Us</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+</br></br></br>
+<%if(empconn.length=== 0) { %>
+</br></br></br>
+  <div class="container">
+    <div class="card" style="margin-top: 40px;">
+      <div class="row" >
+      </br></br>
+        <h3 style="text-align: center; font-style: italic;">No Connections</h3>
+      </br></br>
+       </div>
+       </div>
+  </div>
+</br></br>
+<% }%>
+ 
+
+    <div class="container">
+        <div class="card" style="margin-top: 40px;">
+          
+<% for(var j=0 ; j<empconn.length ; ++j) {%>
+<div class="row" >
+<div class="col-md-6" style="float: right;margin-right: 40px;margin-top: 20px;">
+<div class="thumbnail" style="border-color: transparent; ">
+
+  <%if(empconn[j].connstatus=== "Close") { %>
+    
+   <%if(empconn[j].rate === 1) {%>
+    <div class="rating" style="float:right;" >
+      <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty">
+      </span><span class="glyphicon glyphicon-star-empty"></span><span class="glyphicon glyphicon-star-empty">
+      </span><span class="glyphicon glyphicon-star-empty"></span>
+    </div>
+  <% }  %>
+  <%if(empconn[j].rate === 2) {%>
+    <div class="rating" style="float:right;" >
+      <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+      </span><span class="glyphicon glyphicon-star-empty"></span><span class="glyphicon glyphicon-star-empty">
+      </span><span class="glyphicon glyphicon-star-empty"></span>
+    </div>
+<% }  %>
+<%if(empconn[j].rate === 3) {%>
+  <div class="rating" style="float:right;" >
+    <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+    </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty">
+    </span><span class="glyphicon glyphicon-star-empty"></span>
+  </div>
+<% }  %>
+<%if(empconn[j].rate === 4) {%>
+  <div class="rating" style="float:right;" >
+    <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+    </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+    </span><span class="glyphicon glyphicon-star-empty"></span>
+  </div>
+<% }  %>
+<%if(empconn[j].rate === 5) {%>
+  <div class="rating" style="float:right;" >
+    <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+    </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+    </span><span class="glyphicon glyphicon-star"></span>
+  </div>
+<% }  %>
+    
+       <% } %> 
+</div>
+</div>
+
+<div class="col-md-6" style="float:left; margin-left: 40px;">
+<div class="thumbnail" style="border-color: transparent;">
+    <p style="font-size:16px;"><%= empconn[j].connDate %>
+    <p style="font-size: 16px;">With&nbsp;<strong><%= empconn[j].First_Name %>&nbsp;<%= empconn[j].Last_Name%></strong>&nbsp;for <strong><%= empconn[j].service %></strong></p>
+    <p style="font-size: 16px;"><u><strong>Review:</strong></u>&nbsp <%= empconn[j].review %></p>
+    <p style="font-size: 16px;"><u><strong>Status:</strong></u>&nbsp <%= empconn[j].empconnstatus %></p>
+        <%if(empconn[j].empconnstatus=== "open") { %>
+          <a href="/close/<%=empconn[j].connId%>" class="btn" data-toggle="modal" data-target="#closeconnModal">Close Connection</a>
+          <% } %>
+
+          
+</div> 
+</div>
+
+    </div>
+    <hr style=" border:1px solid #33a18b; width:100%">
+    <% } %>
+   
+    
+     
+    </div>
+    
+</div>
+        
+<!-- RATING -->
+  <div style="text-align: center;" class="modal fade" id="myModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Tell us your experience with &nbsp;Fiaz Aslam</h4>
+        
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div style="text-align: center;">
+          <p id="showTitle" style="text-align: center;font-weight: bold; font-size: larger; "></p>
+          <img id="emo"  src=" " class="mx-auto d-block" style="width: 20%; height: 20%;">
+          </div>
+          <div class="stars" id="stars" data-rating="0">
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+            <span class="star">&nbsp;</span>
+        </div>
+      </br>
+        <form method="post" action="submitempRating">
+          <div  class="form-group">
+            <label style="float: left;" for="comment">Review:</label>
+            <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+          </br>
+            <input  style="text-align: center;font-style: italic; padding: 10px 100px 10px 100px;background-color:#618685; font-size: larger;color: white;" type="submit" name="submit" value="SUBMIT" >
+            <input  hidden type="text" id="rate"  name="empnum" >
+
+          </div>
+        </form>
+        </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- RATING CLOSED -->
+  
+  <!-- Close Connection/Contract Modal -->
+  <div style="text-align: center;" class="modal" id="closeconnModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button></br></br>
+          <h4 class="modal-title">Do You Really want to close the Contract.</h4></br></br>
+          <a href="#" class="btn"  data-toggle="modal" data-dismiss="modal" style="float:left; padding:10px 10px 10px 10px;" >No</a>
+          <a href="#" class="btn"  data-toggle="modal" data-target="#myModal" data-dismiss="modal" style="float:right; padding:10px 10px 10px 10px;">Yes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+        
+    //initial setup
+    var starContainer = document.getElementById('stars');
+var lenstars = Array.prototype.slice.call(starContainer.children);
+var totalStars = lenstars.length;
+
+    document.addEventListener('DOMContentLoaded', function(){
+        let stars = document.querySelectorAll('.star');
+        stars.forEach(function(star){
+            star.addEventListener('click', setRating); 
+        });
+        
+        let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
+        let target = stars[rating - 1];
+        target.dispatchEvent(new MouseEvent('click'));
+    });
+  
+    function setRating(ev){
+        let span = ev.currentTarget;
+        let stars = document.querySelectorAll('.star');
+        let match = false;
+        let num = 0;
+
+        var ind = lenstars.indexOf(ev.target);
+  var count = count = ind+1;
+        stars.forEach(function(star, index){
+          
+            if(match){
+                star.classList.remove('rated');
+            }else{
+                star.classList.add('rated');
+            }
+            //are we currently looking at the span that was clicked
+            if(star === span){
+              
+                match = true;
+                num = index + 1;
+               
+            }
+        });
+        document.querySelector('.stars').setAttribute('data-rating', count);
+        $('#rate').val(count);
+
+            if (count === 1) {
+                document.getElementById("showTitle").innerHTML = "Bad";
+                document.getElementById("emo").src = "https://i.pinimg.com/originals/71/c7/60/71c76025a232b42e8a458ac1656cab65.gif";
+                
+            }
+        else if (count === 2) {
+                document.getElementById("showTitle").innerHTML = "Poor";
+                document.getElementById("emo").src = "https://media.tenor.com/images/f52705434fd388183ce03aeda114359f/tenor.gif ";
+            }
+        else if (count === 3) {
+                document.getElementById("showTitle").innerHTML = "Fair";
+                document.getElementById("emo").src = "https://media0.giphy.com/media/QWvra259h4LCvdJnxP/giphy.gif  ";
+            }
+        else if (count === 4) {
+                document.getElementById("showTitle").innerHTML = "Good";
+                document.getElementById("emo").src = "https://i.pinimg.com/originals/0e/3e/e5/0e3ee551876e1ad2a39f89e4adf9168a.gif";
+            }
+        else if (count === 5){
+                document.getElementById("showTitle").innerHTML = "Excellent";
+                document.getElementById("emo").src = "https://media1.tenor.com/images/aaf7f2bb862a0004acad5bff2b08d927/tenor.gif?itemid=10721555";
+            }
+            
+    }
+    
+  </script>
+  
+ 
+</br></br></br></br>
+
+<!-- Footer -->
+<div class="foot">
+<footer class="page-footer font-small teal pt-4">
+
+  <!-- Footer Text -->
+  <div class="container-fluid  text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mt-md-0 mt-3"  >
+
+        <!-- Content -->
+        <h3 style="color: white;">Sahoolat Content</h3>
+        <a> Sahoolat is a platform to connect Helpers and Employers.</a><br>
+         <a> We are here to provide a connection</a><br>
+          <a> Thanks for becoming a part of <i> sahoolat's </i> community</a>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- <hr class="clearfix w-100 d-md-none pb-3" > -->
+
+      <!-- Grid column -->
+      <div class="col-md-4 mb-md-0 mb-3">
+
+        <!-- Content -->
+        <h3 style="color: white;">Important Links</h3>
+        <a href="contact">Contact us</a><br>
+        <a href="help">Help Center</a><br>
+        <a href="about">Frequently Asked Questions</a>
+
+      </div>
+      <div class="col-md-4 mb-md-0 mb-3" >
+
+        <!-- Content -->
+        <h3 style="color: white;">Contact Information</h3>
+        <a href="about"> About us</a><br>
+        
+        <a>Contact number: 0900-78601</a><br>
+        <a>Email address: sahoolat1@gmail.com</a>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Text -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="Sahoolat"> Sahoolat.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+</div>
+<!-- Footer -->
+    
+</body>
+</html>

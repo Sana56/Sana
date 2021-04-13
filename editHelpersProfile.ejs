@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title> Registration</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+<script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+<script type="text/javascript">
+    
+    
+</script>
+<style>
+    body{
+	background: -webkit-linear-gradient(left,#33a18b, #33a18c);	
+}
+.regleft{
+text-align: center;
+color:#fff;
+margin-top: 2%; 
+}
+.register{
+font-family: lucida sans;
+}
+.regright{
+	margin-top: 1%;
+	background:#ffff;
+	 border-top-left-radius: 10% 25% ;
+	 padding: 4.4%;
+	 margin-bottom: 0%;
+	 
+}
+#regimg{
+	height: 20%;
+	width: 40%;
+
+}
+#helper{
+	margin-top: 0.3%;
+}
+img{
+	margin-top: 15%;
+	margin-bottom: 10%;
+	-webkit-animation:mover 2s infinite alternate;
+	animation:mover 1s infinite alternate;
+
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+.nav-tabs{
+	background: #618685;
+	border:none;
+	margin-top: 0%;
+	border-radius:1.5rem;
+	float: right;
+	width: 25%;
+}
+.nav-link:hover{
+	background-color: #19407e;
+	color: #ffff;
+}
+#myTab{
+	margin-top: 1%;
+}
+
+.nav-link{
+	color: #ffff;
+	 padding: 3%;
+    height: 34px;
+    font-weight: 600;
+	 border-top-right-radius: 1rem;
+    border-bottom-right-radius:1rem;
+}
+
+h3{
+	margin-top: 0.5%;
+
+    text-align: center;
+}
+.btn:focus, .btn:active {
+ background-color: #19407e;
+}
+.btn{
+	background-color:#618685;
+    border:none;
+    color:#fff;
+    float: right;
+ margin-left: 5%;
+	font-family: lucida sans;
+	
+	 outline: none !important;
+  box-shadow: none !important;
+	
+}
+.btn:hover{
+  color: #fff;
+    background-color: #19407e;
+   
+}
+
+
+#re{
+	margin-top:1%; 
+}
+
+</style>
+</head>
+<body>
+<form action="/edit"  method="POST">
+<div class="container-fluid register">
+<div class="row">
+<div class="col-md-3 regleft">
+<img id="regimg" src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+<h3>Welcome</h3>
+<p>We will keep your personal information private</p>
+</div>
+<div class="col-md-9 regright">
+<div class="tab-content" id="TC">
+<div class="tab-pane fade show active" id="helper">
+<h3 >Edit Your Profile</h3><br>
+<% for(var i=0 ; i<helpers.length ; ++i) {%>
+<div class="row register-form">
+<div class="col-md-4">
+<div class="form-group">
+<label>First Name</label>
+<input type="text" id="fn" class="form-control"  name="helper_fname" pattern="[A-Za-z]+" minlength="3" placeholder="First Name" value= <%=helpers[i].First_Name %> required/></div>
+<div class="form-group">
+<label>Last Name</label>
+<input type="text" id="ln" class="form-control" name="helper_lname" pattern="[A-Za-z0-9]+" minlength="3" placeholder="Last Name *" value= <%=helpers[i].Last_Name %>  required />
+</div>
+
+
+<div class="form-group">
+<label>Address</label>
+<input type="text" class="form-control" name="helper_address" placeholder="Address" value= <%=helpers[i].Address %> required/>
+</div>
+
+
+<div class="form-group">
+<label>Type </label>
+<select class="form-control" name="jobtype"  required>
+<option value="Part Time" selected>Part Time</option>
+<option value="Full Time">Full Time</option>
+</select>
+</div>
+<div class="form-group">
+    <label>Mobile number</label> 
+    <input type="text" id="mn" maxlength="11" name="helper_number" pattern="[0]{1}[3]{1}[0-9]{9}" class="form-control" placeholder="Your Phone *" value= <%=helpers[i].Mobile_Number %> required/>
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+
+<div class="form-group" >
+    <div class="form-group">
+        <label>City </label>
+        <select class="form-control" name="city"  required>
+        <option selected disabled><%=helpers[i].City %></option>
+        <option value="Wah Cantt">Wah Cantt</option>
+        <option value="Islamabad">Islamabad</option>
+        <option value="Karachi">Karachi</option>
+        </select>
+        </div>
+<label >Marital Status</label>
+<select class="form-control" name="marital_status"  required>
+<option class="hidden"  selected disabled><%=helpers[i].Marital_Status %></option>
+<option value="Married">Single</option>
+<option value="unmarried">Married</option>
+
+</select>
+</div>
+
+<div id="age" class="form-group">
+<label>Age</label>
+<select class="form-control" name="age" required>
+<option class="hidden"  selected disabled><%=helpers[i].Age %></option>
+<option value="18">18</option>
+<option value="18 to 30">18 to 30</option>
+<option value="30 to 40">30 to 40</option>
+<option value="Above 40">Above 40</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>CNIC number</label>
+<input type="text" id="cnic" name="helper_cnic" class="form-control" minlength="13" maxlength="13" pattern="[0-9]{13}" placeholder="3xxxxxxxxxxxx" value= <%=helpers[i].CNIC_Number %> required/>
+</div>
+
+<label>Services</label><br>
+<div class="form-check-inline">
+ 
+    <input type="checkbox" class="form-check-input" name="check" value="Cleaning">Cleaning
+  
+</div>
+<div class="form-check-inline">
+
+    <input type="checkbox" class="form-check-input" name="check" value="Cooking">Cooking
+ 
+</div>
+<div class="form-check-inline">
+    <input type="checkbox" class="form-check-input" name="check" value="Baby sitting">Baby sitting
+</div>
+<div class="form-check-inline">
+    <input type="checkbox" class="form-check-input" name="check" value="Beautician">Beauty Care
+</div>
+<br><br>
+<button type="submit" class="btn" >Edit</button>
+</div>
+<div class="col-md-4">	
+<div class="form-check">
+    <div class="form-group"><br>
+        <label>Spouse CNIC</label>
+        <input type="text" id="scnic" class="form-control" name="spouse_cnic" pattern="[0-9]{13}" maxlength="13" minlength="13" placeholder="3xxxxxxxxxxxx" value= <%=helpers[i].Spouse_CNIC %>  required/>
+        </div>
+        <div class="form-group">
+        <label>Spouse contact#</label>
+        <input type="text" id="smn" class="form-control" name="spouse_number" maxlength="11" minlength="11" placeholder="03XXXXXXXXX" pattern="[0]{1}[3]{1}[0-9]{9}" minlength="11" maxlength="11" value= <%=helpers[i].Spouse_contact %> required />
+        </div>
+
+</div>
+	
+<br>
+<div class="form-group">
+<label>Reference Name</label> 
+<input type="text"  id="rn" class="form-control" name="reference_name" minlength="3" placeholder="Name of Reference" value= <%=helpers[i].Reference_Name %> required/>
+</div>
+<div class="form-group">
+<label>Reference contact#</label>
+<input type="text" id="rmn" class="form-control" name="reference_number" maxlength="11" placeholder="03XXXXXXXXX" pattern="[0]{1}[3]{1}[0-9]{9}" value=<%=helpers[i].Reference_contact %> minlength="11" required/>
+</div>
+<div class="form-group">
+<label>Reference Relation</label>
+<input type="text" class="form-control" name="reference_relation" minlength="4" placeholder="Last Name *" value=<%=helpers[i].Reference_Relation %> />
+</div>
+
+
+</div>
+</div>
+</div>
+</form>
+<% } %>
+<script>
+bootstrapValidate(['#fn','#ln','#efn'], 'min:3:Name should be of 3 or more characters')
+bootstrapValidate('#cepwd','matches:#epwd:Password doesnot match')
+bootstrapValidate('#skills','required:Select services')
+bootstrapValidate(['#mn','#smn','#rmn'],'numeric:Enter valid number')
+bootstrapValidate('#chpwd','matches:#hpwd:Password doesnot match')
+bootstrapValidate(['#cnic','#ecnic','#scnic'],'numeric:Enter valid naw')
+bootstrapValidate('#email', 'email:Enter valid email address')
+bootstrapValidate(['#rn','#age','#skills'] ,'required:This field is required*')
+
+</script>
+</body>
+</html>
